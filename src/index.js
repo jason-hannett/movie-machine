@@ -1,16 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
+import {Provider} from 'react-redux'
+import store from './Redux/store'
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <HashRouter>
       <App />
     </HashRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );
 
