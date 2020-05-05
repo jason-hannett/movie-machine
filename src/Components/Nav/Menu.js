@@ -26,8 +26,11 @@ function Menu(props) {
           <Link to="/movies/popular">
             <p onClick={closeHandler}>Popular Movies</p>
           </Link>
-          <Link to="/movies/theaters">
+          <Link to="/movies/now_playing">
             <p onClick={closeHandler}>In Theaters</p>
+          </Link>
+          <Link to='/movies/top_rated'>
+          <p onClick={closeHandler}>Top Rated</p>
           </Link>
         </span>
         <span>

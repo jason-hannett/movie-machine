@@ -5,6 +5,7 @@ const express = require('express'),
       session = require('express-session'),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
       authCtrl = require('./controllers/authController'),
+      movieCtrl = require('./controllers/movieController'),
       port = SERVER_PORT,
       app = express();
 
@@ -29,5 +30,8 @@ massive({
 app.post('/api/register', authCtrl.register)
 app.post('/api/login', authCtrl.login)
 app.get('/api/logout', authCtrl.logout)
+
+//movie list endpoints
+app.get('/api/movies', movieCtrl.getPopularMovies)
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
