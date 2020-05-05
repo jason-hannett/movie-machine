@@ -7,7 +7,7 @@ import axios from 'axios'
 
 function Nav(props) {
 
-  const logout = (props) => {
+  const logout = () => {
     axios.get('/api/logout')
     .then(() => {
       props.logoutUser();
