@@ -35,6 +35,7 @@ class Auth extends Component{
             console.log(response.data)
             const {id, username, image} = response.data
             this.props.setUserInfo(id, username, image)
+            this.props.history.goBack()
         })
         .catch(err => console.log(err))
     }
@@ -47,26 +48,55 @@ class Auth extends Component{
 
     render(){
         return(
-            <div>
-               <div>
+            <div className='auth-background'>
+                {this.props.location.pathname === '/auth-register' ? 
+               <div className='auth-container'>
+                   <h2>Register</h2>
                    <input 
                         value={this.state.username}
                         name='username' 
                         placeholder='username'
+                        id='a-username'
                         onChange={this.inputHandler}/>
                    <input 
                         value={this.state.password}
                         name='password' 
                         placeholder='password'
                         type='password'
+                        id='a-password'
                         onChange={this.inputHandler}/>
                    <input 
                         value={this.state.image}
                         name='image' 
                         placeholder='image'
+                        id='a-password'
                         onChange={this.inputHandler}/>
                    <button onClick={this.register}>register</button>
                </div>
+               :
+               <div className='auth-container'>
+                   <h2>Login</h2>
+                   <input 
+                        value={this.state.username}
+                        name='username' 
+                        placeholder='username'
+                        id='a-username'
+                        onChange={this.inputHandler}/>
+                   <input 
+                        value={this.state.password}
+                        name='password' 
+                        placeholder='password'
+                        type='password'
+                        id='a-password'
+                        onChange={this.inputHandler}/>
+                   <button 
+                        id='a-button'
+                        onClick={this.login}>Login</button>
+                   <p>Don't have an account? 
+                       <span onClick={() => this.props.history.push('/auth-register')} id='a-span'> Register here</span>
+                  </p>
+               </div>
+               }
             </div>
         )
     }

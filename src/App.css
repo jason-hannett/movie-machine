@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,6 +35,45 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* //////////////////////////////////////////////// AUTH COMPONENT ///////////////////////////////////////////////////  */
+.auth-background{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container{
+  height: 300px;
+  width: 250px;
+  background-color: rgb(236, 231, 223);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 3%;
+}
+
+#a-username{
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#a-password{
+  margin-bottom: 10px;
+}
+
+#a-button{
+  margin-bottom: 10px;
+}
+
+#a-span{}
+
+#a-span:hover{
+  color: blue;
 }
 
 a {
