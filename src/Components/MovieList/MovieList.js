@@ -22,20 +22,21 @@ function MovieList(props) {
 
   const prevList = usePrevious();
 
-  console.log(pageNumber);
   useEffect(() => {
     if(prevList !== props.match.params.list){
       axios
       .get(`/api/movies/?list=${props.match.params.list}&page=1`)
       .then((response) => {
         setMovieList(response.data);
-        setPageNumber(1)
+        setPageNumber(1);
+        window.scrollTo(0,0)
       });
     } else {
       axios
         .get(`/api/movies/?list=${props.match.params.list}&page=${pageNumber}`)
         .then((response) => {
           setMovieList(response.data);
+          window.scrollTo(0,0)
         });
     }
   }, [props.match.params.list, pageNumber]);
