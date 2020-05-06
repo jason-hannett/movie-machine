@@ -1,8 +1,11 @@
 import React from "react";
 import addIcon from "./add_icon.png";
 import "./DisplayList.scss";
+import axios from 'axios';
+import { connect } from 'react-redux';
 
 function DisplayMovie(props) {
+  console.log(props)
   return (
     <div className='main-page'>
       <div className="display-card">
@@ -23,4 +26,11 @@ function DisplayMovie(props) {
   );
 }
 
-export default DisplayMovie;
+const mapStateToProps = (reduxState) => {
+  const {id} = reduxState;
+  return (
+    id
+  );
+};
+
+export default connect(mapStateToProps)(DisplayMovie);
