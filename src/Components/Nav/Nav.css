@@ -1,0 +1,45 @@
+.main-nav {
+    width: 100%;
+    height: 75px;
+    background-color: lightgray;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dropdown {
+    position: fixed;
+    width: 100vw;
+    height: 400px;
+    top: -100%;
+    background-color: black;
+    color: white;
+    animation: open 0.5s forwards;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.dropdown.close {
+    top: 0px;
+    animation: close 1.0s forwards;
+}
+
+@keyframes open {
+  100% {top: 0px;}
+}
+
+@keyframes close {
+    100% {top: -100%;}
+}
+
+.top-links {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.category-section {
+    display: flex;
+    justify-content: space-evenly;
+}
