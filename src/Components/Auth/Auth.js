@@ -33,8 +33,8 @@ class Auth extends Component{
         axios.post('/api/login', {username, password})
         .then(response => {
             console.log(response.data)
-            const {id, username, image} = response.data
-            this.props.setUserInfo(id, username, image)
+            const {user_id, username, image} = response.data
+            this.props.setUserInfo(user_id, username, image)
             this.props.history.goBack()
         })
         .catch(err => console.log(err))

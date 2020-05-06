@@ -1,17 +1,24 @@
 import React from "react";
 import addIcon from "./add_icon.png";
 import "./DisplayList.scss";
-import axios from 'axios';
-import { connect } from 'react-redux';
+import axios from "axios";
+import { connect } from "react-redux";
 
 function DisplayMovie(props) {
-  console.log(props)
+
+  console.log(props.movie.id)
+
+  const handleAddLikedMovie = (user_id) => {
+    axios.post(`/api/movies/${user_id}`, {movie_id: props.movie.id})
+    
+  }
+
   return (
-    <div className='main-page'>
+    <div className="main-page">
       <div className="display-card">
         <section className="poster-title">
           <img
-            className='poster-image'
+            className="poster-image"
             src={`https://image.tmdb.org/t/p/w500${props.movie.poster_path}`}
             alt={props.movie.title}
           />
@@ -19,7 +26,7 @@ function DisplayMovie(props) {
         </section>
         <section className="rating-add">
           <p>{props.movie.vote_average}</p>
-          <img className="add-icon" src={addIcon} alt="add movie icon" />
+          <img className="add-icon" src={addIcon} alt="add movie icon" onClick={() => handleAddLikedMovie(props.id)}/>
         </section>
       </div>
     </div>
@@ -27,10 +34,10 @@ function DisplayMovie(props) {
 }
 
 const mapStateToProps = (reduxState) => {
-  const {id} = reduxState;
-  return (
-    id
-  );
+  const { id } = reduxState;
+  return {
+    id,
+  }
 };
 
 export default connect(mapStateToProps)(DisplayMovie);

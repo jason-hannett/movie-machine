@@ -17,4 +17,15 @@ module.exports = {
       })
       .catch((err) => res.status(500).send(err));
   },
+  addUserMovieList: (req, res) => {
+    const db = req.app.get('db');
+    const {user_id} = req.params,
+    {movie_id} = req.body;
+    console.log(req.params)
+    console.log(req.body)
+
+    db.movies.add_user_movie(user_id, movie_id)
+    .then((list) => res.status(200).send(list))
+    .catch((err) => res.status(500).send(err))
+  }
 };
