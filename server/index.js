@@ -32,6 +32,6 @@ app.post('/api/login', authCtrl.login)
 app.get('/api/logout', authCtrl.logout)
 
 //movie list endpoints
-app.get('/api/movies', movieCtrl.getPopularMovies)
+app.get('/api/movies', movieCtrl.getMoviesList)
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
