@@ -30,7 +30,8 @@ export default function reducer(state = initialState, action){
             console.log(action.payload)
             return {...state, ...action.payload};
         case LOGOUT_USER:
-            return {...state, user: action.payload};
+            console.log(action.payload)
+            return {initialState};
         default: 
             return state;
     }

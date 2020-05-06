@@ -12,9 +12,10 @@ export default (
     <Switch>
         <Route exact path='/' component={Landing}/>
         <Route path='/auth' component={Auth}/>
+        <Route path='/auth-register' component={Auth}/>
         <Route path='/comments' component={Comments}/>
         <Route path='/movie/:movieId' component={Movie}/>
-        <Route path='/movies' component={MovieList}/>
+        <Route path='/movies/:list' component={MovieList}/>
         <Route path='/movies/:userId' component={UserMovieList}/>
     </Switch>
 )
