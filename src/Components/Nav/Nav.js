@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import { logoutUser } from "../../Redux/reducer";
+import { logoutUser } from "../../redux/reducer";
 import axios from "axios";
 import { connect } from "react-redux";
 import Menu from "./Menu";
