@@ -1,0 +1,30 @@
+.landing-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    margin: 1.5%;
+
+    button {
+        width: 15vw;
+        height: 10vh;
+        border-radius: 12px;
+
+    }
+
+
+    .movie-display {
+        display: flex;
+        flex-direction: column;
+
+
+        .display-sections {
+            display: flex;
+            flex-direction: row;
+            height: 20vh;
+            width: 97vw;
+            background-color: red;
+            border-style: solid;
+        }
+    }
+}

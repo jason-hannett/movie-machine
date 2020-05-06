@@ -1,7 +1,7 @@
 import React, {Component} from 'react' 
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import {setUserInfo} from '../../Redux/reducer'
+import {setUserInfo} from '../../redux/reducer'
 import axios from 'axios'
 
 class Auth extends Component{

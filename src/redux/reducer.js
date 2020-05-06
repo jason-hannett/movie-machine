@@ -1,22 +1,37 @@
 const initialState = {
-    user: {}
+    username: '',
+    id: 0,
+    image: ''
 }
 
-const GET_USER = 'GET_USER'
+const SET_USER_INFO = 'SET_USER_INFO'
+const LOGOUT_USER = 'LOGOUT_USER'
 
-export function getUser(userObj) {
+export const setUserInfo = (id, username, image) => {
+    console.log(username)
+    console.log(id)
     return {
-        type: GET_USER,
-        payload: userObj
+        type: SET_USER_INFO,
+        payload: {id, username, image}
     }
 }
 
-export default function reducer(state = initialState, action) {
-    const {type, payload} = action
-    switch(type) {
-        case GET_USER:
-            return {...state, user: payload}
-        default:
-            return state
+
+export function logoutUser(){
+    return {
+        type: LOGOUT_USER,
+        payload: {}
+    }
+}
+
+export default function reducer(state = initialState, action){
+    switch(action.type){
+        case SET_USER_INFO:
+            console.log(action.payload)
+            return {...state, ...action.payload};
+        case LOGOUT_USER:
+            return {...state, user: action.payload};
+        default: 
+            return state;
     }
 }
