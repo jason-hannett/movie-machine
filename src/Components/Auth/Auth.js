@@ -17,10 +17,8 @@ class Auth extends Component{
     }
 
     register = () => {
-        console.log('button clicked')
         axios.post('/api/register', this.state)
         .then(response => {
-            console.log(response.data)
             const {id, username, image} = response.data
             this.props.setUserInfo(id, username, image)
             this.props.history.push('/')
@@ -32,7 +30,6 @@ class Auth extends Component{
         const {username, password} = this.state
         axios.post('/api/login', {username, password})
         .then(response => {
-            console.log(response.data)
             const {user_id, username, image} = response.data
             this.props.setUserInfo(user_id, username, image)
             this.props.history.goBack()

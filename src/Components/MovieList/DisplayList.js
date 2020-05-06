@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 
 function DisplayMovie(props) {
 
-  console.log(props.movie.id)
 
   const handleAddLikedMovie = (user_id) => {
     axios.post(`/api/movies/${user_id}`, {movie_id: props.movie.id})

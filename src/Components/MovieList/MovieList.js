@@ -20,7 +20,6 @@ function MovieList(props) {
     return ref.current
   }
 
-  console.log(movieList)
 
   const prevList = usePrevious();
 
