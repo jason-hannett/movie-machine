@@ -32,8 +32,11 @@ app.post('/api/login', authCtrl.login)
 app.get('/api/logout', authCtrl.logout)
 
 //movie list endpoints
-app.get('/api/latest-movies', movieCtrl.getLatestMovies)
+app.get('/api/popular', movieCtrl.getPopular)
+app.get('/api/top-rated', movieCtrl.getTopRated)
+app.get('/api/now-playing', movieCtrl.getNowPlaying)
 app.get('/api/random-movie', movieCtrl.randomMovie)
+app.get('/api/trailer/:id', movieCtrl.getTrailer)
 
 app.get('/api/movies', movieCtrl.getMoviesList)
 
