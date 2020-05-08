@@ -19,6 +19,7 @@ function MovieList(props) {
     })
     return ref.current
   }
+console.log(movieList)
 
   const prevList = usePrevious();
 
@@ -45,7 +46,7 @@ function MovieList(props) {
     return <DisplayMovie key={index} movie={movie} />;
   });
   return (
-    <div>
+    <div className='page'>
       {displayList}
       <button onClick={previousPage}>Previous Page</button>
       <p>{pageNumber}</p>
