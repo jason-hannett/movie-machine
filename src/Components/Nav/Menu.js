@@ -36,6 +36,9 @@ function Menu(props) {
           <Link to="/movies/top_rated">
             <p onClick={closeHandler}>Top Rated</p>
           </Link>
+          <Link to="/movies_genre/browse">
+            <p onClick={closeHandler}>Browse by Genre</p>
+          </Link>
         </span>
         <span>
           <h2>TV Shows</h2>
