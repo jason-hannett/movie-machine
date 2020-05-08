@@ -39,5 +39,8 @@ app.get('/api/random-movie', movieCtrl.randomMovie)
 app.get('/api/trailer/:id', movieCtrl.getTrailer)
 
 app.get('/api/movies', movieCtrl.getMoviesList)
+app.post('/api/movies/:user_id', movieCtrl.addUserMovieList)
+app.get('/api/movies/:user_id', movieCtrl.getUserMovieList)
+app.delete('/api/liked_movies/:movie_id', movieCtrl.deleteUserMovie)
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
