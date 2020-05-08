@@ -54,9 +54,8 @@ module.exports = {
     db.movies
       .delete_user_movie(user_id, movie_id)
       .then((list) => res.status(200).send(list))
-      .catch((err) => res.status(500).send(err));
+      .catch((err) => res.status(500).send(err))
   },
-
   getNowPlaying: (req, res) => {
     axios.get(
       `https://api.themoviedb.org/3/movie/now_playing?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=1`
@@ -116,5 +115,4 @@ module.exports = {
     })
     .catch(err => console.log(err))
   }
-  
 };
