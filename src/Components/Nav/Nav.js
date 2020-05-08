@@ -41,7 +41,7 @@ function Nav(props) {
       <p onClick={() => props.history.push("/")}>Movie Machine</p>
       <p onClick={toggleMenu}>Menu</p>
       {dropdownMenu}
-      <p onClick={() => props.history.push(`/movies/${props.id}`)}>Watchlist</p>
+      <p onClick={() => props.history.push(`/liked_movies/${props.id}`)}>Watchlist</p>
       <span>
       {!props.username ? (
         <p onClick={() => props.history.push('/auth')}>Login/Register</p>

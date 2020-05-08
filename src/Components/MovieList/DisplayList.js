@@ -8,6 +8,7 @@ function DisplayMovie(props) {
 
 
   const handleAddLikedMovie = (user_id) => {
+    console.log(props.movie.id)
     axios.post(`/api/movies/${user_id}`, {movie_id: props.movie.id})
     
   }

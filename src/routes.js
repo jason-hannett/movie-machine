@@ -16,6 +16,6 @@ export default (
         <Route path='/comments' component={Comments}/>
         <Route path='/movie/:movieId' component={Movie}/>
         <Route path='/movies/:list' component={MovieList}/>
-        <Route path='/movies/:userId' component={UserMovieList}/>
+        <Route path='/liked_movies/:user_id' component={UserMovieList}/>
     </Switch>
 )
