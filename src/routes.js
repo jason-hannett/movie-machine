@@ -6,6 +6,7 @@ import Comments from './Components/Comments/Comments';
 import Movie from './Components/Movie/Movie';
 import MovieList from './Components/MovieList/MovieList';
 import UserMovieList from './Components/UserMovieList/UserMovieList';
+import Browse from './Components/Browse/Browse';
 
 
 export default (
@@ -17,5 +18,6 @@ export default (
         <Route path='/movie/:movieId' component={Movie}/>
         <Route path='/movies/:list' component={MovieList}/>
         <Route path='/liked_movies/:user_id' component={UserMovieList}/>
+        <Route path='/movies_genre/browse' component={Browse}/>
     </Switch>
 )

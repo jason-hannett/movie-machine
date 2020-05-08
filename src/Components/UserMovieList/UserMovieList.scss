@@ -23,6 +23,7 @@
         .poster-image {
             height: 150px;
             width: 100px;
+            cursor: pointer;
         }
     }
     .watchlist-poster-title {
@@ -31,6 +32,8 @@
         .title {
             margin: 10px;
             font-size: 20px;
+            cursor: pointer;
+
         }
 
         .release-date {
@@ -44,6 +47,7 @@
             width: 20px;
             height: 30px;
             margin: 10px;
+            cursor: pointer;
         }
         .star {
             width: 20px;
