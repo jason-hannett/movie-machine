@@ -1,0 +1,49 @@
+.movie-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400vh;
+
+    iframe {
+        margin: 1.5%;
+    }
+    
+
+    .movie-info {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        margin: 1.5%;
+
+        .title-rating {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            #title {
+                font-size: 40px;
+                font-weight: 800;
+            }
+
+            #rating {
+                font-size: 25px;
+            }
+        }
+
+        img {
+            display: flex;
+            max-height: 45vh;
+            width: 10vw
+        }
+
+        .desc {
+            display: flex;
+            width: 30%;
+
+            p {
+                font-size: 17.8px;
+            }
+        }
+    }
+}
