@@ -42,6 +42,7 @@ console.log(movieList)
     }
   }, [props.match.params.list, pageNumber]);
 
+
   let displayList = movieList.map((movie, index) => {
     return <DisplayMovie key={index} movie={movie} />;
   });
