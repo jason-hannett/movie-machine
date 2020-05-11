@@ -119,7 +119,7 @@ module.exports = {
     const {genre, page} = req.query;
     let genreMovieList = [];
 
-    console.log(req.query)
+    // console.log(req.query)
     axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`)
     .then((response) => {
       genreMovieList = [...response.data.results];

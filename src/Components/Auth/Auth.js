@@ -19,8 +19,8 @@ class Auth extends Component{
     register = () => {
         axios.post('/api/register', this.state)
         .then(response => {
-            const {id, username, image} = response.data
-            this.props.setUserInfo(id, username, image)
+            const {user_id, username, image} = response.data
+            this.props.setUserInfo(user_id, username, image)
             this.props.history.push('/')
         })
         .catch(err => console.log(err))
