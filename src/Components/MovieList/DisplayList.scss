@@ -1,56 +1,65 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
+
+* {
+    box-sizing: border-box;
+}
 
 .main-page {
-    display: flex;
-    justify-content: center;
-    background-color: $background-color;
+  display: flex;
+  justify-content: center;
+  background-color: $background-color;
 }
 
 .display-card {
-    width: 800px;
-    background-color: gray;
+  width: 800px;
+  background-color: gray;
+  @include align-center;
+  border: 1px solid black;
+  margin: 10px;
+  justify-content: space-between;
+
+  .poster-title {
     @include align-center;
-    border: 1px solid black;
-    margin: 10px;
-    justify-content: space-between;
-
-    .poster-title {
-        @include align-center;
-        .title{
-            font-size: 20px;
-            margin: 10px;
-        }
-    }
-    .rating-add {
-        @include align-center;
-    }
-    .poster-image {
-        height: 150px;
-        width: 100px;
-        cursor: pointer;
-        box-sizing: border-box;
-    }
-    .add-button {
-        height: 30px;
-        width: 100px;
-        margin: 10px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
     .title {
-        font-size: 24px;
-        cursor: pointer;
-        text-decoration: underline;
+      font-size: 20px;
     }
-    .overview {
-        font-size: 14px;
-        padding-left: 10px;
-    }
-    .star {
-        width: 20px;
-        height: 20px;
-    }
+  }
+  .rating-add {
+    @include align-center;
+  }
+
+  .poster-image {
+    height: 150px;
+    width: 100px;
+    cursor: pointer;
+  }
+  .add-button {
+    height: 30px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .title-overview {
+      width: 80%;
+      box-sizing: border-box;
+      margin-left: 20px;
+  }
+  .title {
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+  .release-date {
+    padding-bottom: 5px;
+  }
+  .overview {
+    padding-top: 5px;
+    font-size: 14px;
+  }
+  .star {
+    width: 20px;
+    height: 20px;
+  }
 }
-
-
-

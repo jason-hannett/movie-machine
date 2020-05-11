@@ -146,6 +146,16 @@ module.exports = {
       res.status(200).send(genreMovieList)
     })
     .catch((err) => res.status(500).send(err))
+  },
+  getSimilarMovies: (req, res) => {
+    const {movie_id} = req.params;
+    let similarMovieList = [];
+
+    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=1`)
+    .then((response) => {
+      similarMovieList = [...response.data.results];
+      res.status(200).send(similarMovieList)
+    })
+    .catch((err) => res.status(500).send(err))
   }
-  
 };

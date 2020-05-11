@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios'
 import './Movie.scss'
+import SimilarMovies from './SimilarMovies';
 
 function Movie(props) {
   const [movie, setMovie] = useState([])
@@ -17,7 +18,7 @@ function Movie(props) {
       
     })
   }, [])
-  console.log(trailer)
+  console.log(props)
   return <div className='movie-display'>
 
     <iframe width='1280' height='695'
@@ -37,6 +38,7 @@ function Movie(props) {
       </div>
     </div>
 
+      <SimilarMovies id={movie.id}/>
   </div>;
 }
 
