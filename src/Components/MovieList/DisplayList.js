@@ -1,5 +1,4 @@
 import React from "react";
-import addIcon from "./add_icon.png";
 import "./DisplayList.scss";
 import axios from "axios";
 import { connect } from "react-redux";
