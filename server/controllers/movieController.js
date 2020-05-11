@@ -22,8 +22,8 @@ module.exports = {
     let movieList = [];
     const { list } = req.query;
     const { page } = req.query;
-    // console.log(list)
-    // console.log(page)
+  
+    console.log(req.query)
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${list}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=${page}`
@@ -134,6 +134,18 @@ module.exports = {
       res.status(200).send(response.data)
     })
     .catch(err => console.log(err))
+  },
+  getGenreList: (req, res) => {
+    const {genre, page} = req.query;
+    let genreMovieList = [];
+
+    console.log(req.query)
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`)
+    .then((response) => {
+      genreMovieList = [...response.data.results];
+      res.status(200).send(genreMovieList)
+    })
+    .catch((err) => res.status(500).send(err))
   }
   
 };
