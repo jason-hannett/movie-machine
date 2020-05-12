@@ -12,15 +12,18 @@ class Auth extends Component{
         this.state = {
             username: '',
             password: '',
-            image: ''
+            image: '',
+            movie_category_1: '',
+            movie_category_2: '',
+            movie_category_3: ''
         }
     }
 
     register = () => {
         axios.post('/api/register', this.state)
         .then(response => {
-            const {id, username, image} = response.data
-            this.props.setUserInfo(id, username, image)
+            const {id, username, image, movie_category_1, movie_category_2, movie_category_3} = response.data
+            this.props.setUserInfo(id, username, image, movie_category_1, movie_category_2, movie_category_3)
             this.props.history.push('/')
         })
         .catch(err => console.log(err))
@@ -44,6 +47,9 @@ class Auth extends Component{
     }
 
     render(){
+        // console.log(this.state)
+        console.log(this.state.movie_category_1)
+
         return(
             <div className='auth-background'>
                 {this.props.location.pathname === '/auth-register' ? 
@@ -68,6 +74,24 @@ class Auth extends Component{
                         placeholder='image'
                         id='a-password'
                         onChange={this.inputHandler}/>
+                    <select onChange={this.inputHandler} value={this.state.movie_category_1}  name='movie_category_1'>
+                        <option>Select</option>
+                        <option value='comedy' name='comedy'>comedy</option>
+                        <option value='action' name='action'>action</option>
+                        <option value='drama' name='drama'>drama</option>
+                    </select>
+                    <select onChange={this.inputHandler} value={this.state.movie_category_2}  name='movie_category_2'>
+                        <option>Select</option>
+                        <option value='comedy' name='comedy'>comedy</option>
+                        <option value='action' name='action'>action</option>
+                        <option value='drama' name='drama'>drama</option>
+                    </select>
+                    <select onChange={this.inputHandler} value={this.state.movie_category_3}  name='movie_category_3'>
+                        <option>Select</option>
+                        <option value='comedy' name='comedy'>comedy</option>
+                        <option value='action' name='action'>action</option>
+                        <option value='drama' name='drama'>drama</option>
+                    </select>
                    <button onClick={this.register}>register</button>
                </div>
                :
