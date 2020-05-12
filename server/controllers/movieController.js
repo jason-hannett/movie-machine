@@ -35,6 +35,18 @@ module.exports = {
       })
       .catch((err) => res.status(500).send(err));
   },
+
+  getLatestMovies: (req, res) => {
+    let movieList = []
+    const {list} = req.query
+    axios.get(
+      `https://api.themoviedb.org/3/movie/latest?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US`
+    )
+    .then((response) => {
+      console.log(response.data)
+      // movieList = [...response.data.results]
+      res.status(200).send(response.data)})},
+      
   addUserMovieList: (req, res) => {
     // console.log('hit')
     const db = req.app.get("db");
@@ -48,6 +60,7 @@ module.exports = {
       .then(res.sendStatus(200))
       .catch((err) => res.status(500).send(err));
   },
+  
   getUserMovieList: async (req, res) => {
     const db = req.app.get("db");
     const { user_id } = req.params;

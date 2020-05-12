@@ -5,9 +5,8 @@ import { connect } from "react-redux";
 import Star from '../UserMovieList/star.png';
 import {withRouter} from 'react-router-dom';
 
-
 function DisplayMovie(props) {
-
+  
 
   const handleAddLikedMovie = (user_id) => {
     console.log(props.movie.id)
