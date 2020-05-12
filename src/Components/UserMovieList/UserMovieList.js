@@ -11,7 +11,7 @@ function UserMovieList(props) {
 
   const getUserMovieList = () => {
     const { id } = props;
-    axios.get(`/api/movies/${id}`).then((response) => {
+    axios.get(`/api/user/movies/${id}`).then((response) => {
       setUserMovieInfo(response.data);
     });
   };

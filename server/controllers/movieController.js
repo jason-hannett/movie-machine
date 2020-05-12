@@ -53,17 +53,20 @@ module.exports = {
     const { user_id } = req.params;
 
     let movieIdArr = await db.movies.get_user_movies(user_id)
+    // console.log(movieIdArr)
      let likedMovies = movieIdArr.map((element) => axios.get(
           `https://api.themoviedb.org/3/movie/${element.movie_id}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US`
           ).then((a) => {
             return a.data
           })
-          .catch((err) => res.status(404).send(err))
+          .catch((err) => res.status(500).send(err))
           )
           const results = await Promise.all(likedMovies)
-          console.log(likedMovies)
-          console.log(results)
-          res.status(200).send(results)
+          // console.log(likedMovies)
+          // console.log(results[0])
+          results.splice(0,1)
+          // console.log(results)
+          return res.status(200).send(results)
   },
   deleteUserMovie: (req, res) => {
     const db = req.app.get("db");

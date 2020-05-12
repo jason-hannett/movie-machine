@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import './Landing.scss'
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
 
 function Landing(props) {
   const [popularMovies, setPopular] = useState([])
@@ -39,14 +40,16 @@ function Landing(props) {
   }
 
   const handleAddLikedMovie = (user_id, movieId) => {
-    console.log(movieId)
-    
+    // console.log(movieId)
+    if(!props.id){
+      props.history.push('/auth')
+    } else {
     axios.post(`/api/movies/${user_id}`, {movie_id: movieId})
       .then(res => {
         console.log('success')
         console.log(res.data)
       })
-    
+    }
   }
 
 
@@ -71,7 +74,7 @@ function Landing(props) {
         <div className='mapmovie-info'>
           <p>{e.vote_average}</p>
           <p onClick={() => {props.history.push(`/movie/${e.id}`)}}>{e.title}</p>
-          <button type='topRated' onClick={() => handleAddLikedMovie(props.id)}>+ Watchlist</button>
+          <button type='topRated' onClick={() => handleAddLikedMovie(props.id, e.id)}>+ Watchlist</button>
         </div>
       </div>
     )
@@ -84,7 +87,7 @@ function Landing(props) {
         <div className='mapmovie-info'>
           <p>{e.vote_average}</p>
           <p onClick={() => {props.history.push(`/movie/${e.id}`)}}>{e.title}</p>
-          <button>+ Watchlist</button>
+          <button onClick={() => handleAddLikedMovie(props.id, e.id)}>+ Watchlist</button>
         </div>
       </div>
     )
@@ -139,4 +142,4 @@ function Landing(props) {
   };
 
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps)(withRouter(Landing));

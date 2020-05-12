@@ -11,6 +11,14 @@ function DisplayMovie(props) {
     axios.post(`/api/movies/${user_id}`, { movie_id: props.movie.id });
   };
 
+  const watchlistHandler = (id) => {
+    if(!props.id){
+      props.history.push('/auth')
+    } else {
+      handleAddLikedMovie(id)
+    }
+  }
+
   return (
     <div className="main-page">
       <div className="display-card">
@@ -28,7 +36,7 @@ function DisplayMovie(props) {
             >
               {props.movie.title}
             </p>
-            <p className='realase-date'>{props.movie.release_date}</p>
+            <p className='release-date'>{props.movie.release_date}</p>
             <p className="overview">{props.movie.overview}</p>
           </section>
         </section>
@@ -36,7 +44,7 @@ function DisplayMovie(props) {
           <img className="star" src={Star} alt="star" />
           <p>{props.movie.vote_average}</p>
           <button
-            onClick={() => handleAddLikedMovie(props.id)}
+            onClick={() => watchlistHandler(props.id)}
             className="add-button"
           >
             + Watchlist

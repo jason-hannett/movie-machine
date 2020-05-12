@@ -38,11 +38,11 @@ app.get('/api/now-playing', movieCtrl.getNowPlaying)
 app.get('/api/random-movie', movieCtrl.randomMovie)
 app.get('/api/trailer/:id', movieCtrl.getTrailer)
 
+app.post('/api/movies/:user_id', movieCtrl.addUserMovieList)
+app.get('/api/user/movies/:user_id', movieCtrl.getUserMovieList)
 app.get('/api/movies', movieCtrl.getMoviesList)
 app.get('/api/genre', movieCtrl.getGenreList)
 app.get('/api/similar_movies/:movie_id', movieCtrl.getSimilarMovies)
-app.post('/api/movies/:user_id', movieCtrl.addUserMovieList)
-app.get('/api/movies/:user_id', movieCtrl.getUserMovieList)
 app.delete('/api/liked_movies/:movie_id', movieCtrl.deleteUserMovie)
 
 app.listen(port, () => console.log(`Server running on port ${port}`))

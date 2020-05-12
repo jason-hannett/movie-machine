@@ -22,10 +22,12 @@
     @include align-center;
     .title {
       font-size: 20px;
+      font-family: $font-family;
     }
   }
   .rating-add {
     @include align-center;
+    font-family: $font-family;
   }
 
   .poster-image {
@@ -57,6 +59,7 @@
   .overview {
     padding-top: 5px;
     font-size: 14px;
+    font-family: $font-family;
   }
   .star {
     width: 20px;
