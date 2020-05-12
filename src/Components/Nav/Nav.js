@@ -42,6 +42,9 @@ function Nav(props) {
     );
   }
 
+  // console.log(props)
+
+
   return (
     <div className="main-nav">
       <p onClick={() => props.history.push("/")}>Movie Machine</p>
