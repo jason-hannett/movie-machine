@@ -34,6 +34,7 @@ function Nav(props) {
     );
   }
 
+  console.log(props)
 
 
   return (
