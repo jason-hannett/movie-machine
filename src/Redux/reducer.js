@@ -16,7 +16,6 @@ export const setUserInfo = (id, username, image) => {
     }
 }
 
-
 export function logoutUser(){
     return {
         type: LOGOUT_USER,
