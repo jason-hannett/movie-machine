@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+
+.browse-page {
+  background-color: $background-color;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+
+  .browse-section {
+      height: 800px; 
+      width: 70vw;
+    //   background-color: gray;
+  }
+  .box {
+      height: 150px;
+      width: 70vw;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      div {
+          width: 240px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: $font-family;
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          position: relative;
+
+          p {
+            font-family: $font-family;
+            font-size: 27px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            color: white;
+            z-index: 2;
+            cursor: pointer;
+          }
+
+          img {
+              width: 240px;
+              height: 150px;
+              position: absolute;
+              border-radius: 20px;
+              box-shadow: 2px 2px 2px #333333;
+              object-fit: cover;
+              cursor: pointer;
+          }
+      }
+  }
+  .last-box {
+      display: flex;
+      justify-content: space-evenly;
+  }
+}
+

@@ -16,6 +16,10 @@
 
     .poster-title {
         @include align-center;
+        .title{
+            font-size: 20px;
+            margin: 10px;
+        }
     }
     .rating-add {
         @include align-center;
@@ -23,17 +27,22 @@
     .poster-image {
         height: 150px;
         width: 100px;
+        cursor: pointer;
     }
-    .add-icon {
+    .add-button {
         height: 30px;
-        width: 30px;
+        width: 100px;
+        margin: 10px;
+        border-radius: 10px;
+        cursor: pointer;
     }
-    .poster-title p {
+    .title {
         font-size: 24px;
+        cursor: pointer;
     }
-    .trash-icon {
-        height: 40px;
-        width: 30px;
+    .star {
+        width: 20px;
+        height: 20px;
     }
 }
 

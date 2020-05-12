@@ -3,10 +3,27 @@ const axios = require("axios");
 module.exports = {
   getMoviesList: (req, res) => {
     let movieList = [];
-    const { list } = req.query;
-    const { page } = req.query;
+    const {list} = req.query;
+    const {page} = req.query
     // console.log(list)
     // console.log(page)
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${list}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=${page}`
+      )
+      .then((response) => {
+        movieList = [...response.data.results];
+        res.status(200).send(movieList);
+      })
+      .catch((err) => res.status(500).send(err));
+  },
+
+  getMoviesList: (req, res) => {
+    let movieList = [];
+    const { list } = req.query;
+    const { page } = req.query;
+  
+    console.log(req.query)
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${list}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=${page}`
@@ -31,6 +48,7 @@ module.exports = {
       res.status(200).send(response.data)})},
       
   addUserMovieList: (req, res) => {
+    // console.log('hit')
     const db = req.app.get("db");
     const { user_id } = req.params,
       { movie_id } = req.body;
@@ -56,6 +74,7 @@ module.exports = {
           .catch((err) => res.status(404).send(err))
           )
           const results = await Promise.all(likedMovies)
+          console.log(likedMovies)
           console.log(results)
           res.status(200).send(results)
   },
@@ -69,12 +88,13 @@ module.exports = {
       .then((list) => res.status(200).send(list))
       .catch((err) => res.status(500).send(err))
   },
+
   getNowPlaying: (req, res) => {
     axios.get(
       `https://api.themoviedb.org/3/movie/now_playing?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=1`
     )
     .then((response) => {
-      console.log(response.data.results)
+      // console.log(response.data.results)
       res.status(200).send(response.data)
     })
     .catch(err => console.log(err))
@@ -127,5 +147,18 @@ module.exports = {
       res.status(200).send(response.data)
     })
     .catch(err => console.log(err))
+  },
+  getGenreList: (req, res) => {
+    const {genre, page} = req.query;
+    let genreMovieList = [];
+
+    console.log(req.query)
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`)
+    .then((response) => {
+      genreMovieList = [...response.data.results];
+      res.status(200).send(genreMovieList)
+    })
+    .catch((err) => res.status(500).send(err))
   }
+  
 };

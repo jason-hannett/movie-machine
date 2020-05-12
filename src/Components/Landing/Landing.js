@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import './Landing.scss'
 import axios from 'axios'
 
@@ -47,21 +47,29 @@ function Landing(props) {
   }
 
   console.log(randomMovie)
-
-
   console.log(popularMovies)
   console.log(topRated)
   console.log(nowPlaying)
+  
+  const handleAddLikedMovie = (user_id, movieId) => {
+    console.log(movieId)
+    
+    axios.post(`/api/movies/${user_id}`, {movie_id: movieId})
+      .then(res => {
+        console.log('success')
+        console.log(res.data)
+      }) 
+  }
 
 
   const mappedNP = nowPlaying.map((e, index) => {
     return (
-      <div key={index} className='mapped-movie' onClick={() => {props.history.push(`/movie/${e.id}`)}}>
-        <img src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} alt={e.title}/>
+      <div key={index} className='mapped-movie'>
+        <img src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} alt={e.title} onClick={() => {props.history.push(`/movie/${e.id}`)}}/>
         <div className='mapmovie-info'>
           <p>{e.vote_average}</p>
-          <p>{e.title}</p>
-          <button>+ Watchlist</button>
+          <p onClick={() => {props.history.push(`/movie/${e.id}`)}}>{e.title}</p>
+          <button onClick={() => handleAddLikedMovie(props.id, e.id)}>+ Watchlist</button>
         </div>
       </div>
     )
@@ -69,12 +77,12 @@ function Landing(props) {
 
   const mappedTop = topRated.map((e, index) => {
     return (
-      <div key={index} className='mapped-movie' onClick={() => {props.history.push(`/movie/${e.id}`)}}>
-        <img src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} alt={e.title}/>
+      <div key={index} className='mapped-movie'>
+        <img src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} alt={e.title} onClick={() => {props.history.push(`/movie/${e.id}`)}}/>
         <div className='mapmovie-info'>
           <p>{e.vote_average}</p>
-          <p>{e.title}</p>
-          <button>+ Watchlist</button>
+          <p onClick={() => {props.history.push(`/movie/${e.id}`)}}>{e.title}</p>
+          <button type='topRated' onClick={() => handleAddLikedMovie(props.id)}>+ Watchlist</button>
         </div>
       </div>
     )
@@ -82,11 +90,11 @@ function Landing(props) {
 
   const mappedPop = popularMovies.map((e, index) => {
     return (
-      <div key={index} className='mapped-movie' onClick={() => {props.history.push(`/movie/${e.id}`)}}>
-        <img src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} alt={e.title}/>
+      <div key={index} className='mapped-movie'>
+        <img src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} alt={e.title} onClick={() => {props.history.push(`/movie/${e.id}`)}}/>
         <div className='mapmovie-info'>
           <p>{e.vote_average}</p>
-          <p>{e.title}</p>
+          <p onClick={() => {props.history.push(`/movie/${e.id}`)}}>{e.title}</p>
           <button>+ Watchlist</button>
         </div>
       </div>
@@ -138,5 +146,12 @@ function Landing(props) {
     )
   }
 
+  const mapStateToProps = (reduxState) => {
+    const { id } = reduxState;
+    return {
+      id,
+    }
+  };
 
-export default Landing;
+
+export default connect(mapStateToProps)(Landing);
