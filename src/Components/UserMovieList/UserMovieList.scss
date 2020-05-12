@@ -15,8 +15,8 @@
         @include align-center;
         justify-content: space-between;
         background-color: gray;
-        width: 40vw;
-        margin: 20px;
+        width: 60vw;
+        margin: 10px;
         border: 1px solid gray;
         box-sizing: border-box;
 
@@ -29,15 +29,23 @@
     .watchlist-poster-title {
         @include align-center;
 
+        .title-overview {
+            width: 80%;
+            box-sizing: border-box;
+            margin-left: 10px;
+        }
+
         .title {
             margin: 10px;
             font-size: 20px;
             cursor: pointer;
+            text-decoration: underline;
 
         }
 
         .release-date {
             font-size: 14px;
+            padding-bottom: 5px;
         }
     }
     .rating-add {

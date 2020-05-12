@@ -23,6 +23,14 @@ function Nav(props) {
     });
   };
 
+  const watchlistHandler = () => {
+    if(!props.username){
+      props.history.push('/auth')
+    } else {
+      props.history.push(`/liked_movies/${props.id}`)
+    }
+  }
+
   let dropdownMenu;
   if (openMenu) {
     dropdownMenu = (
@@ -34,7 +42,7 @@ function Nav(props) {
     );
   }
 
-  console.log(props)
+  // console.log(props)
 
 
   return (
@@ -42,7 +50,7 @@ function Nav(props) {
       <p onClick={() => props.history.push("/")}>Movie Machine</p>
       <p onClick={toggleMenu}>Menu</p>
       {dropdownMenu}
-      <p onClick={() => props.history.push(`/liked_movies/${props.id}`)}>Watchlist</p>
+      <p onClick={watchlistHandler}>Watchlist</p>
       <span>
       {!props.username ? (
         <p onClick={() => props.history.push('/auth')}>Login/Register</p>
