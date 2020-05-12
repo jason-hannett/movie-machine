@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
     register: async(req, res) => {
-        console.log(req.body)
+        // console.log(req.body)
         const {username, password, image} = req.body;
         const db = req.app.get('db');
 
@@ -10,7 +10,7 @@ module.exports = {
         if(foundUser[0]){
             return res.status(400).send('Username already exists')
     }
-        console.log('checkpoint')
+        // console.log('checkpoint')
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt);
         let newUser = await db.auth.register_user({username, password: hash, image});

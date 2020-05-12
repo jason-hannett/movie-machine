@@ -5,7 +5,6 @@ import "./Nav.scss";
 function Menu(props) {
   const [menuClass, setMenuClass] = useState(props.dropdownMenu);
 
-  console.log(props);
   const closeHandler = () => {
     setMenuClass("dropdown close");
     setTimeout(() => {

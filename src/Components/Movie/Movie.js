@@ -8,6 +8,7 @@ function Movie(props) {
     axios.get(`/api/random-movie?id=${props.match.params.movieId}`)
     .then(res => {
       setMovie(res.data[0])
+      
     })
   }, [])
   console.log(movie)
