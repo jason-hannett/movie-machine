@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.main-page {
+    display: flex;
+    justify-content: center;
+    background-color: $background-color;
+}
+
+.display-card {
+    width: 800px;
+    background-color: gray;
+    @include align-center;
+    border: 1px solid black;
+    margin: 10px;
+    justify-content: space-between;
+
+    .poster-title {
+        @include align-center;
+    }
+    .rating-add {
+        @include align-center;
+    }
+    .poster-image {
+        height: 150px;
+        width: 100px;
+    }
+    .add-icon {
+        height: 30px;
+        width: 30px;
+    }
+    .poster-title p {
+        font-size: 24px;
+    }
+    .trash-icon {
+        height: 40px;
+        width: 30px;
+    }
+}
+
+
+

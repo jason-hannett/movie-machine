@@ -34,17 +34,25 @@ function Nav(props) {
     );
   }
 
+  console.log(props)
+
+
   return (
     <div className="main-nav">
       <p onClick={() => props.history.push("/")}>Movie Machine</p>
       <p onClick={toggleMenu}>Menu</p>
       {dropdownMenu}
-      <p onClick={() => props.history.push('/auth')}>Login/Register</p>
+      <p onClick={() => props.history.push(`/liked_movies/${props.id}`)}>Watchlist</p>
+      <span>
+      {!props.username ? (
+        <p onClick={() => props.history.push('/auth')}>Login/Register</p>
+      ) : null}
+      </span>
       <span>
         {props.username ? (
           <div>
-            <img src={props.user.image} height="15px" />
-            <h3>{props.user.username}</h3>
+            <img src={props.image} height="15px" alt='user profile' />
+            <h3>{props.username}</h3>
             <button onClick={logout}>Logout</button>
           </div>
         ) : null}
@@ -54,8 +62,11 @@ function Nav(props) {
 }
 
 const mapStateToProps = (reduxState) => {
+  const {username, image, id} = reduxState;
   return {
-    user: reduxState,
+    username,
+    image,
+    id
   };
 };
 
