@@ -3,23 +3,6 @@ const axios = require("axios");
 module.exports = {
   getMoviesList: (req, res) => {
     let movieList = [];
-    const {list} = req.query;
-    const {page} = req.query
-    // console.log(list)
-    // console.log(page)
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${list}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=${page}`
-      )
-      .then((response) => {
-        movieList = [...response.data.results];
-        res.status(200).send(movieList);
-      })
-      .catch((err) => res.status(500).send(err));
-  },
-
-  getMoviesList: (req, res) => {
-    let movieList = [];
     const { list } = req.query;
     const { page } = req.query;
   
@@ -208,7 +191,7 @@ module.exports = {
 
       let userGenreArr = [genreId[genreOne], genreId[genreTwo], genreId[genreThree]];
 
-      console.log(userGenreArr)
+      // console.log(userGenreArr)
 
       function getRandomNum(min, max){
         min = Math.ceil(min);
@@ -219,7 +202,7 @@ module.exports = {
       let page = getRandomNum(1,100)
       let genre = userGenreArr[randomIndex]
 
-      console.log(genre)
+      // console.log(genre)
       
       axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`)
       .then((response) => {

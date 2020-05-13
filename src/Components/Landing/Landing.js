@@ -82,6 +82,21 @@ function Landing(props) {
           onClick={() => props.history.push(`/movie/${movie.id}`)}
           alt={movie.title}
         />
+        <div className="mapmovie-info">
+          <p>{movie.vote_average}</p>
+          <p
+            onClick={() => {
+              props.history.push(`/movie/${movie.id}`);
+            }}
+          >
+            {movie.title}
+          </p>
+          <button
+            onClick={() => handleAddLikedMovie(props.id, movie.id)}
+          >
+            + Watchlist
+          </button>
+        </div>
       </div>
     );
   });
@@ -132,10 +147,7 @@ function Landing(props) {
           >
             {e.title}
           </p>
-          <button
-            type="topRated"
-            onClick={() => handleAddLikedMovie(props.id, e.id)}
-          >
+          <button onClick={() => handleAddLikedMovie(props.id, e.id)}>
             + Watchlist
           </button>
         </div>
@@ -170,6 +182,8 @@ function Landing(props) {
     );
   });
 
+  
+
   return (
     <div className="landing-page">
       <button onClick={() => handleRandom()}>Random Movie</button>
@@ -190,18 +204,31 @@ function Landing(props) {
       ) : null}
 
       <div className="movie-display">
-        <p>Recommended</p>
-        <div className="display-sections"></div>
-        <p>Test</p>
-        <div className="display-sections"></div>
-        <p>Recommended Today</p>
+
+        {props.id ?
+        <>
+        <h2>Recommended Today</h2>
         <div className="display-sections">{mappedRecommended}</div>
+        </>
+        :
+        null
+      
+        }
+
+
         <h2>Now Playing</h2>
-        <div className="display-sections">{mappedNP}</div>
+        <div className="display-sections">
+          <button className='left-paddle'></button>
+          {mappedNP}
+          <button className='right-paddle'></button>
+        </div>
+
         <h2>Top Rated</h2>
         <div className="display-sections">{mappedTop}</div>
+
         <h2>Popular</h2>
         <div className="display-sections">{mappedPop}</div>
+
       </div>
     </div>
   );
