@@ -8,6 +8,7 @@ import MovieList from './Components/MovieList/MovieList';
 import UserMovieList from './Components/UserMovieList/UserMovieList';
 import Browse from './Components/Browse/Browse';
 import Genre from './Components/Browse/Genre';
+import Search from './Components/MovieList/Search';
 
 
 export default (
@@ -21,5 +22,6 @@ export default (
         <Route path='/liked_movies/:user_id' component={UserMovieList}/>
         <Route path='/movies_genre/browse' component={Browse}/>
         <Route path='/movies_genre/:genreId' component={Genre}/>
+        <Route path='/search/movies/:query' component={Search}/>
     </Switch>
 )

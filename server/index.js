@@ -6,6 +6,7 @@ const express = require('express'),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
       authCtrl = require('./controllers/authController'),
       movieCtrl = require('./controllers/movieController'),
+      searchCtrl = require('./controllers/searchController'),
       port = SERVER_PORT,
       app = express();
 
@@ -42,7 +43,7 @@ app.get('/api/now-playing', movieCtrl.getNowPlaying)
 app.get('/api/random-movie', movieCtrl.randomMovie)
 app.get('/api/trailer/:id', movieCtrl.getTrailer)
 app.get('/api/suggested/movies/:user_id', movieCtrl.getMovieSuggestion)
-
+app.get('/api/search', searchCtrl.search)
 app.post('/api/movies/:user_id', movieCtrl.addUserMovieList)
 app.get('/api/user/movies/:user_id', movieCtrl.getUserMovieList)
 app.get('/api/movies', movieCtrl.getMoviesList)
