@@ -41,6 +41,7 @@ app.get('/api/top-rated', movieCtrl.getTopRated)
 app.get('/api/now-playing', movieCtrl.getNowPlaying)
 app.get('/api/random-movie', movieCtrl.randomMovie)
 app.get('/api/trailer/:id', movieCtrl.getTrailer)
+app.get('/api/suggested/movies/:user_id', movieCtrl.getMovieSuggestion)
 
 app.post('/api/movies/:user_id', movieCtrl.addUserMovieList)
 app.get('/api/user/movies/:user_id', movieCtrl.getUserMovieList)
