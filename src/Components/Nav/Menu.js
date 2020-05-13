@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./Nav.scss";
+import Close from './Close_Icon.png';
 
 function Menu(props) {
   const [menuClass, setMenuClass] = useState(props.dropdownMenu);
@@ -22,7 +23,7 @@ function Menu(props) {
         >
           MovieMachine
         </p>
-        <p onClick={closeHandler}>Close</p>
+        <img onClick={closeHandler} className='close-button' src={Close} alt='close button'/>
       </section>
       <section className="category-section">
         <span>
