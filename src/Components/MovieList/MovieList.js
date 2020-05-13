@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import DisplayMovie from "./DisplayList";
+import './MovieList.scss';
 
 function MovieList(props) {
   const [movieList, setMovieList] = useState([]);
@@ -12,46 +13,48 @@ function MovieList(props) {
     }
   };
 
-  function usePrevious(){
-    const ref = useRef()
+  function usePrevious() {
+    const ref = useRef();
     useEffect(() => {
-      ref.current = props.match.params.list
-    })
-    return ref.current
+      ref.current = props.match.params.list;
+    });
+    return ref.current;
   }
-console.log(movieList)
+  console.log(movieList)
+  // console.log(props);
 
   const prevList = usePrevious();
 
   useEffect(() => {
-    if(prevList !== props.match.params.list){
+    if (prevList !== props.match.params.list) {
       axios
-      .get(`/api/movies/?list=${props.match.params.list}&page=1`)
-      .then((response) => {
-        setMovieList(response.data);
-        setPageNumber(1);
-        window.scrollTo(0,0)
-      });
+        .get(`/api/movies/?list=${props.match.params.list}&page=1`)
+        .then((response) => {
+          setMovieList(response.data);
+          setPageNumber(1);
+          window.scrollTo(0, 0);
+        });
     } else {
       axios
         .get(`/api/movies/?list=${props.match.params.list}&page=${pageNumber}`)
         .then((response) => {
           setMovieList(response.data);
-          window.scrollTo(0,0)
+          window.scrollTo(0, 0);
         });
     }
   }, [props.match.params.list, pageNumber]);
-
 
   let displayList = movieList.map((movie, index) => {
     return <DisplayMovie key={index} movie={movie} />;
   });
   return (
-    <div className='page'>
+    <div className="page">
       {displayList}
-      <button onClick={previousPage}>Previous Page</button>
-      <p>{pageNumber}</p>
-      <button onClick={() => setPageNumber(pageNumber + 1)}>Next Page</button>
+      <section className='page-buttons'>
+        <button onClick={previousPage}>Previous Page</button>
+        <p className='page-number'>{pageNumber}</p>
+        <button onClick={() => setPageNumber(pageNumber + 1)}>Next Page</button>
+      </section>
     </div>
   );
 }

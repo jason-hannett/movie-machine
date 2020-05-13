@@ -66,17 +66,20 @@ module.exports = {
     const { user_id } = req.params;
 
     let movieIdArr = await db.movies.get_user_movies(user_id)
+    // console.log(movieIdArr)
      let likedMovies = movieIdArr.map((element) => axios.get(
           `https://api.themoviedb.org/3/movie/${element.movie_id}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US`
           ).then((a) => {
             return a.data
           })
-          .catch((err) => res.status(404).send(err))
+          .catch((err) => res.status(500).send(err))
           )
           const results = await Promise.all(likedMovies)
-          console.log(likedMovies)
-          console.log(results)
-          res.status(200).send(results)
+          // console.log(likedMovies)
+          // console.log(results[0])
+          results.splice(0,1)
+          // console.log(results)
+          return res.status(200).send(results)
   },
   deleteUserMovie: (req, res) => {
     const db = req.app.get("db");
@@ -152,13 +155,23 @@ module.exports = {
     const {genre, page} = req.query;
     let genreMovieList = [];
 
-    console.log(req.query)
+    // console.log(req.query)
     axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`)
     .then((response) => {
       genreMovieList = [...response.data.results];
       res.status(200).send(genreMovieList)
     })
     .catch((err) => res.status(500).send(err))
+  },
+  getSimilarMovies: (req, res) => {
+    const {movie_id} = req.params;
+    let similarMovieList = [];
+
+    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=1`)
+    .then((response) => {
+      similarMovieList = [...response.data.results];
+      res.status(200).send(similarMovieList)
+    })
+    .catch((err) => res.status(500).send(err))
   }
-  
 };

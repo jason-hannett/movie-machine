@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import Trashcan from "./trashcan.png";
-import Star from './star.png';
+import Star from "./star.png";
 import "./UserMovieList.scss";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 function UserMovieList(props) {
   const [userMovieInfo, setUserMovieInfo] = useState([]);
 
   const getUserMovieList = () => {
     const { id } = props;
-    axios.get(`/api/movies/${id}`).then((response) => {
+    axios.get(`/api/user/movies/${id}`).then((response) => {
       setUserMovieInfo(response.data);
     });
   };
@@ -30,7 +30,7 @@ function UserMovieList(props) {
 
   let mappedMovieInfo = userMovieInfo.map((movie, index) => {
     return (
-      <div className='main-container'>
+      <div className="main-container">
         <div className="watchlist-display-card" key={index}>
           <section className="watchlist-poster-title">
             <img
@@ -39,11 +39,19 @@ function UserMovieList(props) {
               alt={movie.title}
               onClick={() => props.history.push(`/movie/${movie.id}`)}
             />
-            <p className="title" onClick={() => props.history.push(`/movie/${movie.id}`)}>{movie.title}</p>
-            <p className="release-date">({movie.release_date})</p>
+            <section className='title-overview'>
+              <p
+                className="title"
+                onClick={() => props.history.push(`/movie/${movie.id}`)}
+              >
+                {movie.title}
+              </p>
+              <p className="release-date">({movie.release_date})</p>
+              <p className="overview">{movie.overview}</p>
+            </section>
           </section>
           <section className="rating-add">
-            <img className='star' src={Star} alt='star'/>
+            <img className="star" src={Star} alt="star" />
             <p>{movie.vote_average}</p>
             <img
               className="trash-icon"
