@@ -12,7 +12,10 @@ class Auth extends Component{
         this.state = {
             username: '',
             password: '',
-            image: ''
+            image: '',
+            movie_category_1: '',
+            movie_category_2: '',
+            movie_category_3: ''
         }
     }
 
@@ -44,6 +47,9 @@ class Auth extends Component{
     }
 
     render(){
+        // console.log(this.state)
+        console.log(this.state.movie_category_1)
+
         return(
             <div className='auth-background'>
                 {this.props.location.pathname === '/auth-register' ? 
@@ -68,6 +74,70 @@ class Auth extends Component{
                         placeholder='image'
                         id='a-password'
                         onChange={this.inputHandler}/>
+                    <select onChange={this.inputHandler} value={this.state.movie_category_1}  name='movie_category_1'>
+                        <option>Select</option>
+                        <option value='action' name='action'>action</option>
+                        <option value='comedy' name='adventure'>adventure</option>
+                        <option value='drama' name='animation'>animation</option>
+                        <option value='drama' name='comedy'>comedy</option>
+                        <option value='drama' name='crime'>crime</option>
+                        <option value='drama' name='documentary'>documentary</option>
+                        <option value='drama' name='drama'>drama</option>
+                        <option value='drama' name='family'>family</option>
+                        <option value='drama' name='fantasy'>fantasy</option>
+                        <option value='drama' name='history'>history</option>
+                        <option value='drama' name='horror'>horror</option>
+                        <option value='drama' name='music'>music</option>
+                        <option value='drama' name='mystery'>mystery</option>
+                        <option value='drama' name='romance'>romance</option>
+                        <option value='drama' name='sci-fi'>sci-fi</option>
+                        <option value='drama' name='thriller'>thriller</option>
+                        <option value='drama' name='war'>war</option>
+                        <option value='drama' name='western'>western</option>
+                    </select>
+                    <select onChange={this.inputHandler} value={this.state.movie_category_2}  name='movie_category_2'>
+                        <option>Select</option>
+                        <option value='action' name='action'>action</option>
+                        <option value='comedy' name='adventure'>adventure</option>
+                        <option value='drama' name='animation'>animation</option>
+                        <option value='drama' name='comedy'>comedy</option>
+                        <option value='drama' name='crime'>crime</option>
+                        <option value='drama' name='documentary'>documentary</option>
+                        <option value='drama' name='drama'>drama</option>
+                        <option value='drama' name='family'>family</option>
+                        <option value='drama' name='fantasy'>fantasy</option>
+                        <option value='drama' name='history'>history</option>
+                        <option value='drama' name='horror'>horror</option>
+                        <option value='drama' name='music'>music</option>
+                        <option value='drama' name='mystery'>mystery</option>
+                        <option value='drama' name='romance'>romance</option>
+                        <option value='drama' name='sci-fi'>sci-fi</option>
+                        <option value='drama' name='thriller'>thriller</option>
+                        <option value='drama' name='war'>war</option>
+                        <option value='drama' name='western'>western</option>
+                    </select>
+                    <select onChange={this.inputHandler} value={this.state.movie_category_3}  name='movie_category_3'>
+                        <option>Select</option>
+                        <option value='action' name='action'>action</option>
+                        <option value='comedy' name='adventure'>adventure</option>
+                        <option value='drama' name='animation'>animation</option>
+                        <option value='drama' name='comedy'>comedy</option>
+                        <option value='drama' name='crime'>crime</option>
+                        <option value='drama' name='documentary'>documentary</option>
+                        <option value='drama' name='drama'>drama</option>
+                        <option value='drama' name='family'>family</option>
+                        <option value='drama' name='fantasy'>fantasy</option>
+                        <option value='drama' name='history'>history</option>
+                        <option value='drama' name='horror'>horror</option>
+                        <option value='drama' name='music'>music</option>
+                        <option value='drama' name='mystery'>mystery</option>
+                        <option value='drama' name='romance'>romance</option>
+                        <option value='drama' name='sci-fi'>sci-fi</option>
+                        <option value='drama' name='thriller'>thriller</option>
+                        <option value='drama' name='war'>war</option>
+                        <option value='drama' name='western'>western</option>
+                    </select>
+                    
                    <button onClick={this.register}>register</button>
                </div>
                :
