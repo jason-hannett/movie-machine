@@ -6,7 +6,7 @@
 
 .landing-page {
     @include flex-column;
-    height: 200vh;
+    height: 350vh;
     background-color: black;
     color: white;
     justify-content: space-evenly;
@@ -44,11 +44,10 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            height: 45vh;
+            height: 50vh;
             width: 97vw;
             background-color: black;
             color: white;
-            border-style: solid;
             overflow: auto;
             white-space: nowrap;
 
