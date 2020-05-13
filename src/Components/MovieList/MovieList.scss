@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.page-buttons {
+    background-color: $background-color;
+    @include align-center;
+    justify-content: center;
+    
+    .page-number {
+        color: white;
+        padding: 10px;
+        margin: 20px;
+    }
+
+    button {
+        border-radius: 10px;
+        height: 20px;
+        background-color: orange;
+        border: none;
+        cursor: pointer;
+    }
+}

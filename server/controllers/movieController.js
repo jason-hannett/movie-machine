@@ -23,7 +23,7 @@ module.exports = {
     const { list } = req.query;
     const { page } = req.query;
   
-    console.log(req.query)
+    // console.log(req.query)
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${list}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=${page}`
@@ -43,7 +43,7 @@ module.exports = {
       `https://api.themoviedb.org/3/movie/latest?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US`
     )
     .then((response) => {
-      console.log(response.data)
+      // console.log(response.data)
       // movieList = [...response.data.results]
       res.status(200).send(response.data)})},
       
@@ -66,17 +66,20 @@ module.exports = {
     const { user_id } = req.params;
 
     let movieIdArr = await db.movies.get_user_movies(user_id)
+    // console.log(movieIdArr)
      let likedMovies = movieIdArr.map((element) => axios.get(
           `https://api.themoviedb.org/3/movie/${element.movie_id}?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US`
           ).then((a) => {
             return a.data
           })
-          .catch((err) => res.status(404).send(err))
+          .catch((err) => res.status(500).send(err))
           )
           const results = await Promise.all(likedMovies)
-          console.log(likedMovies)
-          console.log(results)
-          res.status(200).send(results)
+          // console.log(likedMovies)
+          // console.log(results[0])
+          results.splice(0,1)
+          // console.log(results)
+          return res.status(200).send(results)
   },
   deleteUserMovie: (req, res) => {
     const db = req.app.get("db");
@@ -152,13 +155,77 @@ module.exports = {
     const {genre, page} = req.query;
     let genreMovieList = [];
 
-    console.log(req.query)
+    // console.log(req.query)
     axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`)
     .then((response) => {
       genreMovieList = [...response.data.results];
       res.status(200).send(genreMovieList)
     })
     .catch((err) => res.status(500).send(err))
+  },
+  getSimilarMovies: (req, res) => {
+    const {movie_id} = req.params;
+    let similarMovieList = [];
+
+    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&page=1`)
+    .then((response) => {
+      similarMovieList = [...response.data.results];
+      res.status(200).send(similarMovieList)
+    })
+    .catch((err) => res.status(500).send(err))
+  },
+  getMovieSuggestion: (req, res) => {
+    const genreId = {
+      Action: 28,
+      Adventure: 12,
+      Animation: 16,
+      Comedy: 35,
+      Crime: 80,
+      Documentary: 99,
+      Drama: 18,
+      Family: 10751,
+      Fantasy: 14,
+      History: 36,
+      Horror: 27,
+      Music: 10402,
+      Mystery: 9648,
+      Romance: 10749,
+      SciFi: 878,
+      Thriller: 53,
+      War: 10752,
+      Western: 37
+    }
+
+    const db = req.app.get('db');
+    const {user_id} = req.params;
+    // console.log(req.params)
+
+    db.movies.get_user_genres(user_id)
+    .then((genres) => {
+      let genreOne = genres[0].movie_category_1;
+      let genreTwo = genres[0].movie_category_2;
+      let genreThree = genres[0].movie_category_3;
+
+      let userGenreArr = [genreId[genreOne], genreId[genreTwo], genreId[genreThree]];
+
+      console.log(userGenreArr)
+
+      function getRandomNum(min, max){
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max-min + 1)) + min;
+      }
+      let randomIndex = getRandomNum(0,2)
+      let page = getRandomNum(1,100)
+      let genre = userGenreArr[randomIndex]
+
+      console.log(genre)
+      
+      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b0905bacefecc34fb178a826419bdf12&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genre}`)
+      .then((response) => {
+        // console.log(response.data.results)
+        res.status(200).send(response.data.results)
+      })
+    })
   }
-  
 };
