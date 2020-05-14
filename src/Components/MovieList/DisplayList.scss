@@ -8,14 +8,15 @@
   display: flex;
   justify-content: center;
   background-color: $background-color;
+  
 }
 
 .display-card {
   width: 800px;
-  background-color: gray;
+  background-color: #f2f2f2;
   @include align-center;
-  border: 1px solid black;
-  margin: 10px;
+  border: 0.5px solid lightgray;
+  padding: 10px;
   justify-content: space-between;
 
   .poster-title {
@@ -40,6 +41,9 @@
     width: 100px;
     margin: 10px;
     border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    background-color: $button-color;
     cursor: pointer;
   }
   .title-overview {
