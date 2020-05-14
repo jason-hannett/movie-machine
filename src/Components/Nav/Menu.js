@@ -12,6 +12,8 @@ function Menu(props) {
       props.close();
     }, 1000);
   };
+
+ 
   return (
     <div className={menuClass}>
       <section className="top-links">
