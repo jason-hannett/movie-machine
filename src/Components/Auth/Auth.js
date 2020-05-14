@@ -54,7 +54,7 @@ class Auth extends Component{
             <div className='auth-background'>
                 {this.props.location.pathname === '/auth-register' ? 
                <div className='auth-container'>
-                   <h2>Register</h2>
+                   <h2 id='a-header'>Register</h2>
                    <input 
                         value={this.state.username}
                         name='username' 
@@ -74,7 +74,8 @@ class Auth extends Component{
                         placeholder='image'
                         id='a-password'
                         onChange={this.inputHandler}/>
-                    <select onChange={this.inputHandler} value={this.state.movie_category_1}  name='movie_category_1'>
+                    <h3 id='a-header-2'>Favorite Genres</h3>
+                    <select id='a-selector' onChange={this.inputHandler} value={this.state.movie_category_1}  name='movie_category_1'>
                         <option>Select</option>
                         <option value='action' name='action'>action</option>
                         <option value='comedy' name='adventure'>adventure</option>
@@ -95,7 +96,7 @@ class Auth extends Component{
                         <option value='drama' name='war'>war</option>
                         <option value='drama' name='western'>western</option>
                     </select>
-                    <select onChange={this.inputHandler} value={this.state.movie_category_2}  name='movie_category_2'>
+                    <select id='a-selector' onChange={this.inputHandler} value={this.state.movie_category_2}  name='movie_category_2'>
                         <option>Select</option>
                         <option value='action' name='action'>action</option>
                         <option value='comedy' name='adventure'>adventure</option>
@@ -116,7 +117,7 @@ class Auth extends Component{
                         <option value='drama' name='war'>war</option>
                         <option value='drama' name='western'>western</option>
                     </select>
-                    <select onChange={this.inputHandler} value={this.state.movie_category_3}  name='movie_category_3'>
+                    <select id='a-selector' onChange={this.inputHandler} value={this.state.movie_category_3}  name='movie_category_3'>
                         <option>Select</option>
                         <option value='action' name='action'>action</option>
                         <option value='comedy' name='adventure'>adventure</option>
@@ -137,12 +138,12 @@ class Auth extends Component{
                         <option value='drama' name='war'>war</option>
                         <option value='drama' name='western'>western</option>
                     </select>
-                    
-                   <button onClick={this.register}>register</button>
+                    <button id='a-button' onClick={this.register}>register</button>
+                    <p id='a-back' onClick={() => this.props.history.goBack()}>back</p>
                </div>
                :
                <div className='auth-container'>
-                   <h2>Login</h2>
+                   <h2 id='a-header'>Login</h2>
                    <input 
                         value={this.state.username}
                         name='username' 
@@ -159,7 +160,7 @@ class Auth extends Component{
                    <button 
                         id='a-button'
                         onClick={this.login}>Login</button>
-                   <p>Don't have an account? 
+                   <p id='a-p'>Don't have an account? 
                        <span onClick={() => this.props.history.push('/auth-register')} id='a-span'> Register here</span>
                   </p>
                </div>
