@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./Landing.scss";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Star from './star.png'
 
 function Landing(props) {
   console.log(props);
@@ -28,6 +29,8 @@ function Landing(props) {
             setTopRated(response.data.results);
             axios.get("/api/popular").then((response) => {
               setPopular(response.data.results);
+
+              window.scrollTo(0, 0)
             });
           });
         });
@@ -83,7 +86,10 @@ function Landing(props) {
           alt={movie.title}
         />
         <div className="mapmovie-info">
-          <p>{movie.vote_average}</p>
+          <div className='rating'>
+            <img className='star' src={Star} alt='star'/>
+            <p>{movie.vote_average}</p>
+          </div>
           <p
             onClick={() => {
               props.history.push(`/movie/${movie.id}`);
@@ -112,7 +118,10 @@ function Landing(props) {
           }}
         />
         <div className="mapmovie-info">
-          <p>{e.vote_average}</p>
+          <div className='rating'>
+            <img className='star' src={Star} alt='star'/>
+            <p>{e.vote_average}</p>
+          </div>
           <p
             onClick={() => {
               props.history.push(`/movie/${e.id}`);
@@ -139,7 +148,10 @@ function Landing(props) {
           }}
         />
         <div className="mapmovie-info">
-          <p>{e.vote_average}</p>
+          <div className='rating'>
+            <img className='star' src={Star} alt='star'/>
+            <p>{e.vote_average}</p>
+          </div>
           <p
             onClick={() => {
               props.history.push(`/movie/${e.id}`);
@@ -166,7 +178,10 @@ function Landing(props) {
           }}
         />
         <div className="mapmovie-info">
-          <p>{e.vote_average}</p>
+          <div className='rating'>
+            <img className='star' src={Star} alt='star'/>
+            <p>{e.vote_average}</p>
+          </div>
           <p
             onClick={() => {
               props.history.push(`/movie/${e.id}`);
@@ -186,7 +201,7 @@ function Landing(props) {
 
   return (
     <div className="landing-page">
-      <button onClick={() => handleRandom()}>Random Movie</button>
+      <button id='randombtn' onClick={() => handleRandom()}>Random Movie</button>
       {toggleRandom ? (
         <div className="random-movie">
           <img

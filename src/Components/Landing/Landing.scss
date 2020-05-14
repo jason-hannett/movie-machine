@@ -1,5 +1,6 @@
 @import '../../styles/variables';
 
+
 * {
     box-sizing: border-box;
 }
@@ -14,11 +15,27 @@
     align-items: center;
     text-align: left;
 
-    button {
+    #randombtn {
+        background-color: $secondary-color;
         width: 15vw;
         height: 10vh;
-        border-radius: 12px;
+        outline: none;
+        border: none;
+        border-radius: 15px;
+        font-size: 30px;
+        font-weight: 650;
+        box-shadow: 0 7px #787776;
+        cursor: pointer;
 
+    }
+
+    #randombtn:hover {
+        background-color: #8dc5e6;
+    }
+
+    #randombtn:active {
+        box-shadow: 0 5px #4d4c4a;
+        transform: translateY(4px)
     }
 
     .random-movie {
@@ -28,6 +45,7 @@
             max-height: 40vh;
             width: 10vw;
         }
+
     }
 
 
@@ -89,7 +107,7 @@
                 flex-direction: column;
                 max-height: 80vh;
                 margin: 1%;
-                background-color: $secondary-color;
+                background-color: $tertiary-color;
                 border-radius: 3%;
                 font-weight: 700;
                 
@@ -101,6 +119,17 @@
                     flex-direction: column;
                     height: 150px;
                     width: 100%;
+
+                    .star {
+                        width: 25px;
+                        height: 25px;
+                    }
+
+                    .rating {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                    }
                     
 
                 }
@@ -110,8 +139,13 @@
                     max-height: 60vh;
                 }
 
+                img:hover {
+                    opacity: 50%;
+                    cursor: pointer;
+                }
+
                 button {
-                    background-color: #636e8f;
+                    background-color: $secondary-color;
                     color: white;
                     font-weight: 600;
                     border: none;
@@ -121,6 +155,15 @@
                     justify-content: center;
                     height: 30%;
                     width: 88%;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    background-color: #8dc5e6;
+                }
+            
+                button:active {
+                    transform: translateY(4px)
                 }
             }
         }
