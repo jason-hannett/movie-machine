@@ -137,58 +137,58 @@ class Auth extends Component {
               name="movie_category_1"
             >
               <option>Select</option>
-              <option value="action" name="action">
+              <option value="Action" name="action">
                 Action
               </option>
-              <option value="comedy" name="adventure">
+              <option value="Adventure" name="adventure">
                 Adventure
               </option>
-              <option value="drama" name="animation">
+              <option value="Animation" name="animation">
                 Animation
               </option>
-              <option value="drama" name="comedy">
+              <option value="Comedy" name="comedy">
                 Comedy
               </option>
-              <option value="drama" name="crime">
+              <option value="Crime" name="crime">
                 Crime
               </option>
-              <option value="drama" name="documentary">
+              <option value="Documentary" name="documentary">
                 Documentary
               </option>
-              <option value="drama" name="drama">
+              <option value="Drama" name="drama">
                 Drama
               </option>
-              <option value="drama" name="family">
+              <option value="Family" name="family">
                 Family
               </option>
-              <option value="drama" name="fantasy">
+              <option value="Fantasy" name="fantasy">
                 Fantasy
               </option>
-              <option value="drama" name="history">
+              <option value="History" name="history">
                 History
               </option>
-              <option value="drama" name="horror">
+              <option value="Horror" name="horror">
                 Horror
               </option>
-              <option value="drama" name="music">
+              <option value="Music" name="music">
                 Music
               </option>
-              <option value="drama" name="mystery">
+              <option value="Mystery" name="mystery">
                 Mystery
               </option>
-              <option value="drama" name="romance">
+              <option value="Romance" name="romance">
                 Romance
               </option>
-              <option value="drama" name="sci-fi">
+              <option value="Sci-Fi" name="sci-fi">
                 Sci-Fi
               </option>
-              <option value="drama" name="thriller">
+              <option value="Thriller" name="thriller">
                 Thriller
               </option>
-              <option value="drama" name="war">
+              <option value="War" name="war">
                 War
               </option>
-              <option value="drama" name="western">
+              <option value="Western" name="western">
                 Western
               </option>
             </select>
@@ -199,58 +199,58 @@ class Auth extends Component {
               name="movie_category_2"
             >
               <option>Select</option>
-              <option value="action" name="action">
+              <option value="Action" name="action">
                 Action
               </option>
-              <option value="comedy" name="adventure">
+              <option value="Adventure" name="adventure">
                 Adventure
               </option>
-              <option value="drama" name="animation">
+              <option value="Animation" name="animation">
                 Animation
               </option>
-              <option value="drama" name="comedy">
+              <option value="Comedy" name="comedy">
                 Comedy
               </option>
-              <option value="drama" name="crime">
+              <option value="Crime" name="crime">
                 Crime
               </option>
-              <option value="drama" name="documentary">
+              <option value="Documentary" name="documentary">
                 Documentary
               </option>
-              <option value="drama" name="drama">
+              <option value="Drama" name="drama">
                 Drama
               </option>
-              <option value="drama" name="family">
+              <option value="Family" name="family">
                 Family
               </option>
-              <option value="drama" name="fantasy">
+              <option value="Fantasy" name="fantasy">
                 Fantasy
               </option>
-              <option value="drama" name="history">
+              <option value="History" name="history">
                 History
               </option>
-              <option value="drama" name="horror">
+              <option value="Horror" name="horror">
                 Horror
               </option>
-              <option value="drama" name="music">
+              <option value="Music" name="music">
                 Music
               </option>
-              <option value="drama" name="mystery">
+              <option value="Mystery" name="mystery">
                 Mystery
               </option>
-              <option value="drama" name="romance">
+              <option value="Romance" name="romance">
                 Romance
               </option>
-              <option value="drama" name="sci-fi">
+              <option value="Sci-Fi" name="sci-fi">
                 Sci-Fi
               </option>
-              <option value="drama" name="thriller">
+              <option value="Thriller" name="thriller">
                 Thriller
               </option>
-              <option value="drama" name="war">
+              <option value="War" name="war">
                 War
               </option>
-              <option value="drama" name="western">
+              <option value="Western" name="western">
                 Western
               </option>
             </select>
@@ -261,58 +261,58 @@ class Auth extends Component {
               name="movie_category_3"
             >
               <option>Select</option>
-              <option value="action" name="action">
+              <option value="Action" name="action">
                 Action
               </option>
-              <option value="comedy" name="adventure">
+              <option value="Adventure" name="adventure">
                 Adventure
               </option>
-              <option value="drama" name="animation">
+              <option value="Animation" name="animation">
                 Animation
               </option>
-              <option value="drama" name="comedy">
+              <option value="Comedy" name="comedy">
                 Comedy
               </option>
-              <option value="drama" name="crime">
+              <option value="Crime" name="crime">
                 Crime
               </option>
-              <option value="drama" name="documentary">
+              <option value="Documentary" name="documentary">
                 Documentary
               </option>
-              <option value="drama" name="drama">
+              <option value="Drama" name="drama">
                 Drama
               </option>
-              <option value="drama" name="family">
+              <option value="Family" name="family">
                 Family
               </option>
-              <option value="drama" name="fantasy">
+              <option value="Fantasy" name="fantasy">
                 Fantasy
               </option>
-              <option value="drama" name="history">
+              <option value="History" name="history">
                 History
               </option>
-              <option value="drama" name="horror">
+              <option value="Horror" name="horror">
                 Horror
               </option>
-              <option value="drama" name="music">
+              <option value="Music" name="music">
                 Music
               </option>
-              <option value="drama" name="mystery">
+              <option value="Mystery" name="mystery">
                 Mystery
               </option>
-              <option value="drama" name="romance">
+              <option value="Romance" name="romance">
                 Romance
               </option>
-              <option value="drama" name="sci-fi">
+              <option value="Sci-Fi" name="sci-fi">
                 Sci-Fi
               </option>
-              <option value="drama" name="thriller">
+              <option value="Thriller" name="thriller">
                 Thriller
               </option>
-              <option value="drama" name="war">
+              <option value="War" name="war">
                 War
               </option>
-              <option value="drama" name="western">
+              <option value="Western" name="western">
                 Western
               </option>
             </select>

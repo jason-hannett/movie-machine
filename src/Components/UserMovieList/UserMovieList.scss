@@ -14,10 +14,9 @@
     .watchlist-display-card {
         @include align-center;
         justify-content: space-between;
-        background-color: gray;
+        background-color: #f2f2f2;
         width: 60vw;
-        margin: 10px;
-        border: 1px solid gray;
+        border: 1px solid lightgray;
         box-sizing: border-box;
 
         .poster-image {
