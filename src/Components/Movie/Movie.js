@@ -22,17 +22,8 @@ function Movie(props) {
 
   const handleAddLikedMovie = (user_id) => {
     axios.post(`/api/movies/${user_id}`, { movie_id: props.match.params.movieId });
-    toggleText()
   };
 
-   const toggleText = () => {
-     var x = document.getElementById('watchlist-button')
-     if (x.innerHTML === '+') {
-       x.innerHTML = ''
-     } else {
-       x.innerHTML = '+'
-     }
-   }
 
   const watchlistHandler = (id) => {
     if(!props.id){
@@ -64,7 +55,7 @@ function Movie(props) {
         </div>
 
         <div className='watch-button'>
-            <button id="watchlist-button" onClick={() => watchlistHandler(props.id)} tabIndex='1'>+</button>
+            <button id="watchlist-button" onClick={() => watchlistHandler(props.id)}>Add</button>
           </div>
 
         <div className="desc">

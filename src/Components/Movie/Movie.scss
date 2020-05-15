@@ -40,14 +40,10 @@
                 height: 80px;
                 outline: none;
                 border-radius: 50%;
-                font-size: 50px;
+                font-size: 30px;
                 cursor: pointer;
             }
 
-            button:focus {
-                background-image: url('checkmark.png');
-                background-color: #2be028;
-            }
         }
 
         .title-rating {
@@ -84,6 +80,7 @@
             max-width: 30%;
             height: 88%;
             margin: 1.5%;
+            border: 5px solid black;
             // background-color: $secondary-color;
 
             p {

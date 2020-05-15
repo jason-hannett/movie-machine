@@ -74,6 +74,10 @@
             overflow-x: auto;
             overflow-y: hidden;
 
+            border-top-style: solid;
+            border-color: #3b3b38;
+            border-top-width: 5px;
+
             .left-paddle {
                 display: flex;
                 position: absolute;
