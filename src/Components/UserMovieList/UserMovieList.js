@@ -39,7 +39,7 @@ function UserMovieList(props) {
               alt={movie.title}
               onClick={() => props.history.push(`/movie/${movie.id}`)}
             />
-            <section className='title-overview'>
+            <section className="title-overview">
               <p
                 className="title"
                 onClick={() => props.history.push(`/movie/${movie.id}`)}
@@ -64,7 +64,12 @@ function UserMovieList(props) {
       </div>
     );
   });
-  return <div className="page">{mappedMovieInfo}</div>;
+  return (
+    <div className="page">
+      <p>My Watchlist</p>
+      {mappedMovieInfo}
+    </div>
+  );
 }
 
 const mapStateToProps = (reduxState) => {
