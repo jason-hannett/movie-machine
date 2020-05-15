@@ -10,6 +10,8 @@
     flex-direction: column;
     align-items: center;
     height: 400vh;
+    background-color: black;
+    color: white;
 
     iframe {
         margin: 1.5%;
@@ -20,13 +22,35 @@
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        width: 67%;
         margin: 1.5%;
+        background-color: $tertiary-color;
+
+        .watch-button {
+            margin-top: 8%;
+
+            button {
+                background-color: $secondary-color;
+                border-color: $background-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 80px;
+                height: 80px;
+                outline: none;
+                border-radius: 50%;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+        }
 
         .title-rating {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
+            margin: 1.5%;
 
             #title {
                 font-size: 40px;
@@ -46,15 +70,22 @@
         img {
             display: flex;
             max-height: 45vh;
-            width: 10vw
+            width: 10vw;
+            margin: 1.5%;
         }
 
         .desc {
             display: flex;
-            width: 30%;
+            text-align: left;
+            max-width: 30%;
+            height: 88%;
+            margin: 1.5%;
+            border: 5px solid black;
+            // background-color: $secondary-color;
 
             p {
-                font-size: 17.8px;
+                margin: 1.5%;
+                font-size: 23px;
                 font-family: $font-family;
             }
         }

@@ -24,6 +24,7 @@ function Movie(props) {
     axios.post(`/api/movies/${user_id}`, { movie_id: props.match.params.movieId });
   };
 
+
   const watchlistHandler = (id) => {
     if(!props.id){
       props.history.push('/auth')
@@ -51,8 +52,11 @@ function Movie(props) {
         <div className="title-rating">
           <p id="title">{movie.title}</p>
           <p id="rating">{movie.vote_average}</p>
-          <button id="watchlist-button" onClick={() => watchlistHandler(props.id)}>+ Watchlist</button>
         </div>
+
+        <div className='watch-button'>
+            <button id="watchlist-button" onClick={() => watchlistHandler(props.id)}>Add</button>
+          </div>
 
         <div className="desc">
           <p>{movie.overview}</p>
