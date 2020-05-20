@@ -91,10 +91,10 @@ function Nav(props) {
         </div>
       </div>
       <div className="watchlist-login">
-        <div onClick={watchlistHandler}>
+        <div id='watchlist-button' onClick={watchlistHandler}>
           <p>Watchlist</p>
         </div>
-        <span>
+        <span className='login'>
           {!props.username ? (
             <div>
               <p onClick={() => props.history.push("/auth")}>Sign In</p>
