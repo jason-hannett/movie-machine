@@ -36,18 +36,6 @@ context('Misc', () => {
     const isCircleOnWindows = Cypress.platform === 'win32' && Cypress.env('circle')
 
     if (isCircleOnWindows) {
-      cy.log('Skipping test on CircleCI')
-
-      return
-    }
-
-    // cy.exec problem on Shippable CI
-    // https://github.com/cypress-io/cypress/issues/6718
-    const isShippable = Cypress.platform === 'linux' && Cypress.env('shippable')
-
-    if (isShippable) {
-      cy.log('Skipping test on ShippableCI')
-
       return
     }
 
@@ -94,6 +82,8 @@ context('Misc', () => {
         // @ts-ignore
         onBeforeScreenshot () { },
         onAfterScreenshot () { },
+        beforeScreenshot () { },
+        afterScreenshot () { },
       })
     })
   })

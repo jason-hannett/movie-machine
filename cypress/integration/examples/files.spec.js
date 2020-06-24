@@ -95,7 +95,6 @@ context('Files', () => {
       .then((response) => {
         cy.writeFile('cypress/fixtures/users.json', response.body)
       })
-
     cy.fixture('users').should((users) => {
       expect(users[0].name).to.exist
     })
