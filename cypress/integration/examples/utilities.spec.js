@@ -99,7 +99,6 @@ context('Utilities', () => {
       })
   })
 
-
   it('Cypress.Promise - instantiate a bluebird promise', () => {
     // https://on.cypress.io/promise
     let waited = false
