@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express'),
       massive = require('massive'),
       session = require('express-session'),
+      path = require('path'),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
       authCtrl = require('./controllers/authController'),
       movieCtrl = require('./controllers/movieController'),
@@ -11,6 +12,7 @@ const express = require('express'),
       app = express();
 
 app.use(express.json())
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(session({
     resave: false,
@@ -50,5 +52,9 @@ app.get('/api/movies', movieCtrl.getMoviesList)
 app.get('/api/genre', movieCtrl.getGenreList)
 app.get('/api/similar_movies/:movie_id', movieCtrl.getSimilarMovies)
 app.delete('/api/liked_movies/:movie_id', movieCtrl.deleteUserMovie)
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../build/index.html"));
+  });
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
